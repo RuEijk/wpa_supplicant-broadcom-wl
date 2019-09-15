@@ -9,7 +9,7 @@ The patches in this repo were developed by [dcaratti](https://copr.fedorainfracl
 
 ## Installation guide
 If you're running Fedora, the easiest way to install would be by using [dcarrati's COPR repository](https://copr.fedorainfracloud.org/coprs/dcaratti/wpa_supplicant/). 
-Alternatively, download the latest release from this GitHub repo and run `dnf install /path/to/wpa_supplicant_binary.rpm`.
+Alternatively, download the [latest release](https://github.com/REijkelenberg/wpa_supplicant-broadcom-wl/releases) from this GitHub repo and run `dnf install /path/to/wpa_supplicant_binary.rpm`.
 
 Make sure to blacklist `wpa_supplicant` in your package manager to prevent it from being replaced by a future, unpatched version.
 If you're using `dnf`, add the line `exclude=wpa_supplicant` to /etc/dnf/dnf.conf.
