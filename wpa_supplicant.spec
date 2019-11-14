@@ -6,7 +6,7 @@
 Summary: WPA/WPA2/IEEE 802.1X Supplicant
 Name: wpa_supplicant
 Epoch: 1
-Version: 2.8
+Version: 2.9
 Release: 2%{?dist}.bz1703745
 License: BSD
 Source0: http://w1.fi/releases/%{name}-%{version}%{rcver}%{snapshot}.tar.gz
@@ -28,6 +28,8 @@ Patch1: wpa_supplicant-flush-debug-output.patch
 Patch3: wpa_supplicant-quiet-scan-results-message.patch
 # distro specific customization for Qt4 build tools, not suitable for upstream
 Patch6: wpa_supplicant-gui-qt4.patch
+# fix AP mode PMF disconnection protection bypass
+Patch7: 0001-AP-Silently-ignore-management-frame-from-unexpected-.patch
 
 URL: http://w1.fi/wpa_supplicant/
 
@@ -166,10 +168,17 @@ chmod -R 0644 %{name}/examples/*.py
 %endif
 
 %changelog
-* Fri May 10 2019 Davide Caratti <dcaratti@redhat.com> - 1:2.8-2.bz1703745
+* Wed Oct 30 2019 Davide Caratti <dcaratti@redhat.com> - 1:2.9-2
+- fix AP mode PMF disconnection protection bypass (CVE-2019-16275, rh #1767026)
+
+* Fri Aug 16 2019 Lubomir Rintel <lkundrak@v3.sk> - 1:2.9-1
+- Update to version 2.9
+
+* Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1:2.8-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Fri May 10 2019 Davide Caratti <dcaratti@redhat.com> - 1:2.8-2
 - fix changelog for version 2.8-1
-- temporarily disable CONFIG_MESH to preserve connectivity when broadcom-wl
-  driver is in use (rh #1703745)
 
 * Thu May 02 2019 Davide Caratti <dcaratti@redhat.com> - 1:2.8-1
 - Update to 2.8 upstream release, to include latest fix for NULL
